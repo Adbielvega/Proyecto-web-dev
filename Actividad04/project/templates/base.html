@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %}Mi aplicacion{% endblock title %}</title>
+</head>
+<body>
+    <header>
+        <h1>Encabezado Comun</h1>
+    </header>
+    <main>
+        {%block content %} {% endblock %}
+    </main>
+    <footer>
+        <p>Pie de pagina comun</p>
+    </footer>
+</body>
+</html>
