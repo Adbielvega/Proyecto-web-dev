@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>RecipeShare</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+  <style type="text/tailwindcss">
+
+    @layer components {
+
+      .input {
+        @apply w-full rounded-2xl border border-slate-300 px-4 py-3 mb-3 outline-none;
+      }
+
+      .btn-primary {
+        @apply px-4 py-2 rounded-xl bg-blue-600 text-white hover:bg-blue-700 transition;
+      }
+
+      .btn-secondary {
+        @apply px-4 py-2 rounded-xl border border-slate-300 bg-white hover:bg-slate-100 transition;
+      }
+
+    }
+
+  </style>
+
+</head>
+
+<body class="bg-slate-50 text-slate-900">
+
+  <header class="bg-white border-b border-slate-200">
+
+    <nav class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
+
+      <div>
+        <h1 class="text-3xl font-bold text-blue-700">
+          RecipeShare
+        </h1>
+
+        <p class="text-slate-500 text-sm">
+          Red social de recetas
+        </p>
+      </div>
+
+      <div class="flex gap-2">
+
+        <button id="btnShowLogin" class="btn-secondary">
+          Login
+        </button>
+
+        <button id="btnShowRegister" class="btn-primary">
+          Registro
+        </button>
+
+        <button id="btnLogout" class="hidden btn-secondary">
+          Salir
+        </button>
+
+      </div>
+
+    </nav>
+
+  </header>
+
+  <main class="max-w-6xl mx-auto px-4 py-8">
+
+    <section class="bg-gradient-to-r from-blue-700 to-slate-900 text-white rounded-3xl p-8 mb-8">
+
+      <h2 class="text-4xl font-bold mb-4">
+        Comparte recetas simples y favoritas
+      </h2>
+
+      <p class="text-blue-100">
+        Explora recetas publicadas por la comunidad.
+      </p>
+
+    </section>
+
+    <section id="messageBox"
+      class="hidden mb-6 rounded-2xl p-4 text-sm">
+    </section>
+
+    <section class="grid md:grid-cols-2 gap-6 mb-8">
+
+      <form id="loginForm"
+        class="hidden bg-white rounded-3xl p-6 border border-slate-200">
+
+        <h3 class="text-xl font-bold mb-4">
+          Iniciar sesión
+        </h3>
+
+        <input name="email"
+          class="input"
+          placeholder="Email">
+
+        <input name="password"
+          type="password"
+          class="input"
+          placeholder="Password">
+
+        <button class="btn-primary w-full">
+          Entrar
+        </button>
+
+      </form>
+
+      <form id="registerForm"
+        class="hidden bg-white rounded-3xl p-6 border border-slate-200">
+
+        <h3 class="text-xl font-bold mb-4">
+          Registro
+        </h3>
+
+        <input name="name"
+          class="input"
+          placeholder="Nombre">
+
+        <input name="email"
+          class="input"
+          placeholder="Email">
+
+        <input name="password"
+          type="password"
+          class="input"
+          placeholder="Password">
+
+        <button class="btn-primary w-full">
+          Registrarme
+        </button>
+
+      </form>
+
+    </section>
+
+<section id="recipeFormSection"
+  class="hidden bg-white rounded-3xl p-6 border border-slate-200 mb-8">
+
+  <h3 class="text-xl font-bold mb-4">
+    Publicar receta
+  </h3>
+
+  <form id="recipeForm">
+    
+    <input type="hidden" name="id">
+
+    <input name="title"
+      class="input"
+      placeholder="Titulo">
+
+    <input name="description"
+      class="input"
+      placeholder="Descripcion">
+
+    <textarea name="ingredients"
+      class="input min-h-28"
+      placeholder="Ingredientes"></textarea>
+
+    <textarea name="steps"
+      class="input min-h-28"
+      placeholder="Pasos"></textarea>
+
+    <input name="prep_minutes"
+      type="number"
+      class="input"
+      placeholder="Tiempo en minutos">
+
+    <button class="btn-primary w-full">
+      Guardar receta
+    </button>
+
+  </form>
+
+</section>
+
+    <section class="flex justify-between items-center mb-6">
+
+      <div>
+
+        <h3 class="text-2xl font-bold">
+          Recetas publicadas
+        </h3>
+
+        <p class="text-slate-500">
+          Ordena por recientes o likes
+        </p>
+
+      </div>
+
+      <div class="flex gap-2">
+
+        <button class="btn-secondary sortBtn"
+          data-sort="recent">
+
+          Más recientes
+
+        </button>
+
+        <button
+            id="btnNewRecipe"
+            class="hidden btn-primary">
+            Nueva receta
+        </button>
+
+
+        <button class="btn-secondary sortBtn"
+          data-sort="likes">
+
+          Más likes
+
+        </button>
+
+      </div>
+
+    </section>
+
+    <section id="recipesGrid"
+      class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+    </section>
+
+  </main>
+
+  <script src="/static/app.js"></script>
+
+</body>
+
+</html>

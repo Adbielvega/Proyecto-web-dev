@@ -1,0 +1,64 @@
+POST http://127.0.0.1:5000/api/register
+Content-Type: application/json
+
+{
+    "name": "Carlos Rivera",
+    "email": "carlos@example.com",
+    "password": "123456"
+}
+
+###
+
+POST http://127.0.0.1:5000/api/login
+Content-Type: application/json
+
+{
+    "email": "carlos@example.com",
+    "password": "123456"
+}
+
+###
+
+GET http://127.0.0.1:5000/api/recipes
+
+###
+
+POST http://127.0.0.1:5000/api/recipes
+Content-Type: application/json
+
+{
+    "title": "Pizza",
+    "description": "Receta italiana.",
+    "ingredients": "Queso, masa",
+    "steps": "Hornear pizza.",
+    "prep_minutes": 30
+}
+
+###
+
+PUT http://127.0.0.1:5000/api/recipes/5
+Content-Type: application/json
+
+{
+    "title": "Hamburguesa Deluxe",
+    "description": "Hamburguesa mejorada.",
+    "ingredients": "Carne, queso, bacon",
+    "steps": "Cocinar y servir.",
+    "prep_minutes": 25
+}
+
+###
+
+DELETE http://127.0.0.1:5000/api/recipes/5
+
+###
+
+POST http://127.0.0.1:5000/api/recipes/1/like
+
+###
+
+POST http://127.0.0.1:5000/api/recipes/4/favorite
+
+###
+
+POST http://127.0.0.1:5000/api/logout
